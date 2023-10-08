@@ -1,4 +1,4 @@
-# Crear una lista de tareas en Python
+# Crear una lista de tareas en Python / Create a task list in Python
 lista_tareas = []
 
 def agregar_tarea():
