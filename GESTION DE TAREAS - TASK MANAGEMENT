@@ -1,0 +1,53 @@
+# Crear una lista de tareas en Python
+lista_tareas = []
+
+def agregar_tarea():
+    tarea = {}
+    tarea["nombre"] = input("Ingrese el nombre de la tarea: ")
+    tarea["fecha"] = input("Ingrese la fecha de ejecución (dd-mm-yyyy): ")
+    tarea["responsable"] = input("Ingrese el responsable de la tarea: ")
+    lista_tareas.append(tarea)
+    print("Tarea agregada con éxito.")
+    print("\n")
+
+def mostrar_tareas():
+    print("\nLista de Tareas:")
+    for i, tarea in enumerate(lista_tareas, start=1):
+        print(f"{i}. Nombre: {tarea['nombre']} - Fecha de Ejecución: {tarea['fecha']} - Responsable: {tarea['responsable']}")
+        print("\n")
+
+def eliminar_tarea():
+    mostrar_tareas()
+    try:
+        indice = int(input("Ingrese el número de la tarea que desea eliminar: "))
+        if 1 <= indice <= len(lista_tareas):
+            tarea_eliminada = lista_tareas.pop(indice - 1)
+            print(f"Tarea eliminada: {tarea_eliminada['nombre']}")
+            print("\n")
+        else:
+            print("Número de tarea no válido.")
+            print("\n")
+    except ValueError:
+        print("Por favor, ingrese un número válido.")
+        print("\n")
+
+while True:
+    print("\033[1mGESTION DE TAREAS\033[0m")
+    print("1. Agregar Tarea")
+    print("2. Mostrar Tareas")
+    print("3. Eliminar Tarea")
+    print("4. Salir")
+    
+    opcion = input("Seleccione una opción: ")
+    
+    if opcion == "1":
+        agregar_tarea()
+    elif opcion == "2":
+        mostrar_tareas()
+    elif opcion == "3":
+        eliminar_tarea()
+    elif opcion == "4":
+        break
+    else:
+        print("Opción no válida. Intente nuevamente.")
+        print("\n")
